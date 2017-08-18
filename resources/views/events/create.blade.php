@@ -39,6 +39,36 @@
     </div>
     <div class="column is-one-third">
         <div class="field">
+            {!! Form::label('region', 'Region', ['class' => 'label']) !!}
+            <div class="control">
+                <div class="select is-fullwidth">
+                    {{ Form::select('region', $regions, null, ['class' => 'input', 'required' => 'required']) }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="column is-one-third">
+        <div class="field">
+            {!! Form::label('country', 'Country', ['class' => 'label']) !!}
+            <div class="control">
+                <div class="control">
+                    {!! Form::text('country', null, ['class' => 'input']) !!}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="column is-one-third">
+        <div class="field">
+            {!! Form::label('city', 'City', ['class' => 'label']) !!}
+            <div class="control">
+                <div class="control">
+                    {!! Form::text('city', null, ['class' => 'input']) !!}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="column is-one-third">
+        <div class="field">
             {!! Form::label('start_year', 'Year', ['class' => 'label']) !!}
             <div class="control">
                 {!! Form::text('start_year', null, ['class' => 'input', 'required' => 'required', 'pattern' => '\d{4}']) !!}
@@ -101,4 +131,5 @@
 
 {!! Form::button('Create', ['class' => 'button is-primary is-fullwidth', 'type' => 'submit']) !!}
 {!! Form::close() !!}
+
 @endsection

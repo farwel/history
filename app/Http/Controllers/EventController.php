@@ -24,12 +24,15 @@ class EventController extends Controller
      */
     public function create()
     {
+        $regions = array_values(\Countries::all()->pluck('region')->unique()->sort()->toArray());
+        $regions = array_combine($regions, $regions);
+
         $months[0] = '';
         foreach (range(1, 12) as $month) {
             $months[$month] = strftime('%B', mktime(0, 0, 0, $month, 1));
         }
 
-        return view('events.create', compact('months'));
+        return view('events.create', compact('months', 'regions'));
     }
 
     /**
